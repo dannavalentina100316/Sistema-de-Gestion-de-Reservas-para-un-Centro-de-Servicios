@@ -1,1 +1,1 @@
-# Sistema-de-Gesti-n-de-Reservas-para-un-Centro-de-Servicios.
+# Sistema de Gestión de Reservas - Rama Conflicto
