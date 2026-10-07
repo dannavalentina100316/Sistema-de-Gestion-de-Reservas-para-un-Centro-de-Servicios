@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Motonea</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body class="body-dashboard">
+    <div class="dashboard-container">
+        <!-- Menú Lateral -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <span class="brand-mark">M</span>
+                <h2>Motonea</h2>
+            </div>
+            <nav>
+                <a href="dashboard.html" class="nav-item active">Dashboard</a>
+                <a href="usuarios.html" class="nav-item">Usuarios</a>
+                <a href="servicios.html" class="nav-item">Servicios</a>
+                <a href="index.html" class="nav-item logout">Cerrar Sesión</a>
+            </nav>
+        </aside>
+
+        <!-- Área Principal -->
+        <main class="main-content">
+            <header class="topbar">
+                <div class="page-title">
+                    <h1>Panel de Control</h1>
+                    <p>Bienvenido al sistema de administración de Motonea</p>
+                </div>
+            </header>
+
+            <!-- Métricas -->
+            <section class="stat-grid">
+                <article class="stat-card">
+                    <h3>Usuarios Totales</h3>
+                    <div class="stat-number">24</div>
+                    <div class="stat-meta">
+                        <span class="trend-up">Activos</span> en la plataforma
+                    </div>
+                </article>
+
+                <article class="stat-card">
+                    <h3>Servicios Ofrecidos</h3>
+                    <div class="stat-number">12</div>
+                    <div class="stat-meta">Servicios listados en taller</div>
+                </article>
+
+                <article class="stat-card">
+                    <h3>Reservas del Mes</h3>
+                    <div class="stat-number">48</div>
+                    <div class="stat-meta">
+                        <span class="trend-up">+15%</span> vs. mes anterior
+                    </div>
+                </article>
+            </section>
+
+            <!-- Banner Promocional -->
+            <section class="hero-banner" style="margin-top: 24px; border-radius: 18px;">
+                <div class="hero-copy-left">
+                    <span class="small-tag">Zontes 200U1</span>
+                    <h1>NUEVA</h1>
+                    <h2>ZONTES</h2>
+                    <p>200U1</p>
+                </div>
+
+                <div class="hero-copy-right">
+                    <p>DEJA DE SEGUIR</p>
+                    <h3>TENDENCIAS,</h3>
+                    <h4>CONVIÉRTETE EN UNA.</h4>
+                    <span>ESTILO SUPERMOTO</span>
+                    <button style="margin-top: 15px;">CONSÚLTALA</button>
+                </div>
+            </section>
+
+            <!-- Catálogo de Motos -->
+            <section class="models-section" id="modelos">
+                <div class="models-heading">
+                    <div>
+                        <span class="section-kicker">Catálogo Motonea</span>
+                        <h3 id="models-title">Motos TVS</h3>
+                        <p id="models-description">Modelos destacados disponibles para conocer y reservar.</p>
+                    </div>
+                </div>
+
+                <div class="models-grid" id="models-grid">
+                    <!-- Se llena con app.js -->
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+
+</html>
