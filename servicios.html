@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Servicios - Motonea</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/admin.css">
+</head>
+<body class="body-dashboard">
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <span class="brand-mark">M</span>
+                <h2>Motonea</h2>
+            </div>
+            <nav>
+                <a href="dashboard.html" class="nav-item">Dashboard</a>
+                <a href="usuarios.html" class="nav-item">Usuarios</a>
+                <a href="servicios.html" class="nav-item active">Servicios</a>
+                <a href="index.html" class="nav-item logout">Cerrar Sesión</a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="topbar">
+                <div class="page-title">
+                    <h1>Gestión de servicios</h1>
+                    <p>Catálogo de servicios disponibles para el taller</p>
+                </div>
+                <button id="btnOpenServiceModal" class="btn-primary-action">+ Nuevo servicio</button>
+            </header>
+
+            <!-- Búsqueda y Filtro por Estado (T10, T11) -->
+            <section class="filter-bar">
+                <div class="search-box">
+                    <input type="text" id="serviceSearchInput" placeholder="Buscar servicio por nombre...">
+                </div>
+                <div class="filter-group">
+                    <select id="serviceStatusFilter">
+                        <option value="">Todos los Estados</option>
+                        <option value="Disponible">Disponible</option>
+                        <option value="No disponible">No disponible</option>
+                    </select>
+                </div>
+            </section>
+
+            <!-- Listado en Tarjetas (T02) -->
+            <section class="services-grid" id="servicesGrid">
+                <!-- Carga dinámica vía JS -->
+            </section>
+        </main>
+    </div>
+
+    <!-- Modal Formulario Servicio (T03) -->
+    <div id="serviceModal" class="modal-overlay hidden">
+        <div class="modal-card">
+            <div class="modal-header">
+                <h3 id="serviceModalTitle">Crear Servicio</h3>
+                <button class="close-modal-btn" id="btnCloseServiceModal">&times;</button>
+            </div>
+            <form id="serviceForm">
+                <input type="hidden" id="serviceId">
+                <div class="form-group">
+                    <label for="serviceName">Nombre del servicio</label>
+                    <input type="text" id="serviceName" required placeholder="Ej. Cambio de aceite">
+                </div>
+                <div class="form-group">
+                    <label for="serviceCategory">Categoría</label>
+                    <input type="text" id="serviceCategory" placeholder="Ej. Mantenimiento general">
+                </div>
+                <div class="form-group">
+                    <label for="servicePrice">Precio ($)</label>
+                    <input type="number" id="servicePrice" required min="0" step="500" placeholder="Ej. 30000">
+                </div>
+                <div class="form-group">
+                    <label for="serviceDuration">Duración (minutos)</label>
+                    <input type="number" id="serviceDuration" required min="5" placeholder="Ej. 45">
+                </div>
+                <div class="form-group">
+                    <label for="serviceImage">URL Imagen (opcional)</label>
+                    <input type="url" id="serviceImage" placeholder="https://ejemplo.com/imagen.jpg">
+                </div>
+                <div class="form-group">
+                    <label for="serviceStatus">Estado</label>
+                    <select id="serviceStatus" required>
+                        <option value="Disponible">Disponible</option>
+                        <option value="No disponible">No disponible</option>
+                    </select>
+                </div>
+                <div class="modal-actions">
+                    <button type="button" class="btn-secondary" id="btnCancelServiceModal">Cancelar</button>
+                    <button type="submit" class="btn-primary-action">Guardar Servicio</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal Confirmación Eliminar Servicio -->
+    <div id="deleteServiceModal" class="modal-overlay hidden">
+        <div class="modal-card modal-confirm">
+            <h3>¿Eliminar servicio?</h3>
+            <p>Se removerá de las opciones de reserva.</p>
+            <div class="modal-actions">
+                <button type="button" class="btn-secondary" id="btnCancelDeleteService">Cancelar</button>
+                <button type="button" class="btn-danger" id="btnConfirmDeleteService">Eliminar</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/gestion-servicios.js"></script>
+</body>
+</html>
