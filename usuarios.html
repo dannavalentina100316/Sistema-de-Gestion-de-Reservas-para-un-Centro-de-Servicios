@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Usuarios - Motonea</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/admin.css">
+</head>
+<body class="body-dashboard">
+    <div class="dashboard-container">
+        <!-- Barra lateral / Navegación -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <span class="brand-mark">M</span>
+                <h2>Motonea</h2>
+            </div>
+            <nav>
+                <a href="dashboard.html" class="nav-item">Dashboard</a>
+                <a href="usuarios.html" class="nav-item active">Usuarios</a>
+                <a href="servicios.html" class="nav-item">Servicios</a>
+                <a href="index.html" class="nav-item logout">Cerrar Sesión</a>
+            </nav>
+        </aside>
+
+        <!-- Contenido Principal -->
+        <main class="main-content">
+            <header class="topbar">
+                <div class="page-title">
+                    <h1>Gestión de usuarios</h1>
+                    <p>Administra los usuarios y roles del sistema</p>
+                </div>
+                <button id="btnOpenUserModal" class="btn-primary-action">+ Nuevo usuario</button>
+            </header>
+
+            <!-- Filtros y Búsqueda -->
+            <section class="filter-bar">
+                <div class="search-box">
+                    <input type="text" id="userSearchInput" placeholder="Buscar por nombre o correo...">
+                </div>
+                <div class="filter-group">
+                    <select id="userRoleFilter">
+                        <option value="">Todos los Roles</option>
+                        <option value="Administrador">Administrador</option>
+                        <option value="Técnico">Técnico</option>
+                        <option value="Cliente">Cliente</option>
+                    </select>
+                    <select id="userStatusFilter">
+                        <option value="">Todos los Estados</option>
+                        <option value="Activo">Activo</option>
+                        <option value="Inactivo">Inactivo</option>
+                        <option value="Pendiente">Pendiente</option>
+                    </select>
+                </div>
+            </section>
+
+            <!-- Tabla de Usuarios (T02, T12) -->
+            <section class="panel">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Correo</th>
+                            <th>Rol</th>
+                            <th>Estado</th>
+                            <th>Fecha de Registro</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id="userTableBody">
+                        <!-- Carga dinámica vía JS -->
+                    </tbody>
+                </table>
+            </section>
+        </main>
+    </div>
+
+    <!-- Modal Formulario Usuario (T04) -->
+    <div id="userModal" class="modal-overlay hidden">
+        <div class="modal-card">
+            <div class="modal-header">
+                <h3 id="userModalTitle">Crear Usuario</h3>
+                <button class="close-modal-btn" id="btnCloseUserModal">&times;</button>
+            </div>
+            <form id="userForm">
+                <input type="hidden" id="userId">
+                <div class="form-group">
+                    <label for="userName">Nombre</label>
+                    <input type="text" id="userName" required placeholder="Nombre completo">
+                </div>
+                <div class="form-group">
+                    <label for="userEmail">Correo Electrónico</label>
+                    <input type="email" id="userEmail" required placeholder="correo@ejemplo.com">
+                </div>
+                <div class="form-group">
+                    <label for="userRole">Rol</label>
+                    <select id="userRole" required>
+                        <option value="Administrador">Administrador</option>
+                        <option value="Técnico">Técnico</option>
+                        <option value="Cliente">Cliente</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="userStatus">Estado</label>
+                    <select id="userStatus" required>
+                        <option value="Activo">Activo</option>
+                        <option value="Inactivo">Inactivo</option>
+                        <option value="Pendiente">Pendiente</option>
+                    </select>
+                </div>
+                <div class="modal-actions">
+                    <button type="button" class="btn-secondary" id="btnCancelUserModal">Cancelar</button>
+                    <button type="submit" class="btn-primary-action">Guardar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal Confirmación Eliminación (T11) -->
+    <div id="deleteUserModal" class="modal-overlay hidden">
+        <div class="modal-card modal-confirm">
+            <h3>¿Confirmar eliminación?</h3>
+            <p>Esta acción no se puede deshacer. ¿Deseas eliminar este usuario?</p>
+            <div class="modal-actions">
+                <button type="button" class="btn-secondary" id="btnCancelDeleteUser">Cancelar</button>
+                <button type="button" class="btn-danger" id="btnConfirmDeleteUser">Eliminar</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/gestion-usuarios.js"></script>
+</body>
+</html>
